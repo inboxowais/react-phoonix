@@ -46,10 +46,11 @@ function SignUp(props) {
 
     const mobileWidth = IsMobileWidth()
     const tabletWidth = IsTabletWidth()
+    const [passwordVisible, showPassword] = useState(true)
 
     // src={`${process.env.PUBLIC_URL}/assets/images/${selectedItm.img}`}
     return (
-        <form id="signup" className="d-flex justify-content-center align-items-center" style={{backgroundImage: `url(${process.env.PUBLIC_URL}/assets/background_phoenix.png)`,backgroundSize:"100% 100%",backgroundRepeat : "no-repeat" }}>
+        <form id="signup" className="d-flex justify-content-center align-items-center" style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/assets/background_phoenix.png)`, backgroundSize: "100% 100%", backgroundRepeat: "no-repeat" }}>
 
             <div className={`${(mobileWidth || tabletWidth) ? 'w-100 h-100 pt-1 pb-1 pl-1 pr-1' : 'signup-container'} d-flex justify-content-between`}>
                 {
@@ -67,7 +68,7 @@ function SignUp(props) {
                             : null
                     }
 
-                    <Typography color="primary" className = "blue-text-font font-weight-bold" variant="h4">Welcome Back</Typography>
+                    <Typography color="primary" className="blue-text-font font-weight-bold" variant="h4">Welcome Back</Typography>
                     <Typography color="primary" className="blue-text-font font-weight-bold" variant="h4">Log In</Typography>
                     <div className="pl-4 pr-4 w-100">
 
@@ -83,8 +84,8 @@ function SignUp(props) {
                                 placeholder="Password"
                                 onChange={(event) => onChange(event, "password")}
                                 value={state.password}
-                                type="password"
-                                endAdornment={<i className='fa fa-eye'></i>}
+                                type={passwordVisible ? "password" : "text"}
+                                endAdornment={<i onClick={() => showPassword(!passwordVisible)} className={`${passwordVisible ?  'fa fa-eye' : 'fa fa-eye-slash'} cursor-pointer`}></i> }
                             />
                         </div>
                         <Typography color="primary" className="cursor-pointer text-font" onClick={() => redirectTo("/forgot-password")}>Forgot Password</Typography>
@@ -108,7 +109,7 @@ function SignUp(props) {
                         </div>
                         <div className="pt-2 d-flex justify-content-center align-items-center text-center w-100">
                             <div className="d-flex">
-                                <Typography color="primary" className = 'text-font'>Do not have an account?</Typography>
+                                <Typography color="primary" className='text-font'>Do not have an account?</Typography>
                                 <Typography color="primary" className="font-weight-bold pl-2 cursor-pointer text-font" onClick={() => redirectTo("/signup")}>Sign Up</Typography>
                             </div>
                         </div>

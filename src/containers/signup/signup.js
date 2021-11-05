@@ -46,6 +46,7 @@ function SignUp(props) {
             props.resetAuth()
         }
     }, [])
+    const [passwordVisible, showPassword] = useState(true)
 
 
     const mobileWidth = IsMobileWidth()
@@ -76,10 +77,12 @@ function SignUp(props) {
                         <div className="pt-2">
                             <SiteLabelTextField
                                 placeholder="Password"
-                                type="password"
+                               
                                 onChange={(event) => onChange(event, "password")}
                                 value={state.password}
-                                endAdornment={<i className='fa fa-eye'></i>}
+                                
+                                type={passwordVisible ? "password" : "text"}
+                                endAdornment={<i onClick={() => showPassword(!passwordVisible)} className={`${passwordVisible ?  'fa fa-eye' : 'fa fa-eye-slash'} cursor-pointer`}></i> }
                             />
                         </div>
                         <div className='pt-5 w-100'>
