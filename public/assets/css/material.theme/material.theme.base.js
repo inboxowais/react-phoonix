@@ -2,7 +2,7 @@
 export const primaryColor = "#7a0754";
 export const materialThemeBase = {
     typography: {
-        fontFamily: "Comfortaa"
+        // fontFamily: "Comfortaa"
       },
       palette: {
         primary: {

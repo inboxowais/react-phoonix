@@ -14,7 +14,7 @@ export default function Dashboard() {
     return (
         <div className='w-100'>
             <div className={`w-100 d-flex ${mobileWidth && 'flex-column'}`}>
-                <div className={!mobileWidth && `w-50 pl-3 pr-3`,mobileWidth && 'w-100'} style={{ height: "85vh", overflow: "auto" }}>
+                <div className = {`${!mobileWidth && 'w-50 pl-3 pr-3'} ${mobileWidth && 'w-100'}`} style={{ height: "85vh", overflow: "auto" }}>
                     <h5 className="font-weight-bold">Name</h5>
                     <div>
                         <SiteLabelTextField
@@ -96,7 +96,7 @@ export default function Dashboard() {
                         </div>
                     </div>
                 </div>
-                <div className={!mobileWidth && `w-50 pl-3 pr-3`,mobileWidth && 'w-100 pt-2'} style={{ height: "100vh", overflow: "auto" }}>
+                <div className = {`${!mobileWidth && 'w-50 pl-3 pr-3'} ${mobileWidth && 'w-100'}`} style={{ height: "100vh", overflow: "auto" }}>
                     <div className="w-100 d-flex justify-content-center">
                         <Button disableElevation className = "background-button-light">Add A Step</Button>
                     </div>

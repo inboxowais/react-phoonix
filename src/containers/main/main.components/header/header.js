@@ -22,6 +22,7 @@ import Avatar from '@material-ui/core/Avatar';
 import { deepOrange, deepPurple } from '@material-ui/core/colors';
 import { ClickAwayListener, Paper, Popper } from '@material-ui/core'
 import { IsMobileWidth } from 'components/utils/util'
+import './header.scss'
 
 
 
@@ -162,13 +163,14 @@ function Header(props) {
 
                                 </IconButton>
                         }
-                        <div className="d-flex align-items-center pl-3">
+                        <div className="d-flex align-items-center pl-3 header">
                             <div className="bg-primary" style={{ width: 25, height: 25, borderRadius: 10 }}>
 
                             </div>
                             <Typography
-                                className="font-weight-bold pl-1"
-                                variant="h5"
+                                className=" pl-1 blue-text-font pt-2"
+                                variant = "overline"
+                                
                                 color="primary"
                                 noWrap>
                                 Phonenix NC

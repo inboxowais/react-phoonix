@@ -55,8 +55,8 @@ function SignUp(props) {
                 {
                     mobileWidth || tabletWidth ? null :
                         <div className="d-flex flex-column h-100 justify-content-end pb-4">
-                            <Typography className="text-white" variant="h6" >Welcome To</Typography>
-                            <Typography className="text-white font-weight-bolder" variant="h2">Phoenix NC</Typography>
+                            <Typography className="text-white blue-text-font" variant="h6" >Welcome To</Typography>
+                            <Typography className="text-white font-weight-bolder blue-text-font" variant="h2">Phoenix NC</Typography>
                         </div>
                 }
                 <div className={`${(mobileWidth || tabletWidth) ? "w-100" : "w-30"} bg-white h-100 d-flex justify-content-center align-items-center flex-column`} style={{ borderRadius: 20 }}>
@@ -67,8 +67,8 @@ function SignUp(props) {
                             : null
                     }
 
-                    <Typography color="primary" variant="h4">Welcome Back</Typography>
-                    <Typography color="primary" className="font-weight-bolder" variant="h4">Login</Typography>
+                    <Typography color="primary" className = "blue-text-font font-weight-bold" variant="h4">Welcome Back</Typography>
+                    <Typography color="primary" className="blue-text-font font-weight-bold" variant="h4">Log In</Typography>
                     <div className="pl-4 pr-4 w-100">
 
                         <div className="pt-5">
@@ -87,7 +87,7 @@ function SignUp(props) {
                                 endAdornment={<i className='fa fa-eye'></i>}
                             />
                         </div>
-                        <Typography color="primary" className="cursor-pointer" onClick={() => redirectTo("/forgot-password")}>Forgot Password</Typography>
+                        <Typography color="primary" className="cursor-pointer text-font" onClick={() => redirectTo("/forgot-password")}>Forgot Password</Typography>
                         <div className='pt-5 w-100'>
                             {
                                 props.authLoading ?
@@ -108,8 +108,8 @@ function SignUp(props) {
                         </div>
                         <div className="pt-2 d-flex justify-content-center align-items-center text-center w-100">
                             <div className="d-flex">
-                                <Typography color="primary">Do not have an account?</Typography>
-                                <Typography color="primary" className="font-weight-bold pl-2 cursor-pointer" onClick={() => redirectTo("/signup")}>Sign Up</Typography>
+                                <Typography color="primary" className = 'text-font'>Do not have an account?</Typography>
+                                <Typography color="primary" className="font-weight-bold pl-2 cursor-pointer text-font" onClick={() => redirectTo("/signup")}>Sign Up</Typography>
                             </div>
                         </div>
 

@@ -112,7 +112,7 @@ function Dashboard(props) {
             </Dialog>
             <div className="w-100 d-flex justify-content-between align-items-center">
                 <div>
-                    <Typography variant="h5" className = "font-weight-bolder">
+                    <Typography variant="h5" className = " heading-font">
                         Manage Your Applets
                     </Typography>
                 </div>

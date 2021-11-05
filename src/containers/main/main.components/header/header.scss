@@ -1,15 +1,8 @@
 .header {
-    .smallDOt {
-        width: 10px;
-        color: #FDCB6E;
-    }
-    .nav-item:hover{
-        color: #FDCB6E;
-    }
-    .avatar {
-        width: 40px;
-        height: 40px;
-        border-radius: 100px;
+    
+    .MuiTypography-overline {
+        font-family: 'Khula', sans-serif !important;
+        font-size: 20px !important;
     }
     
 }

@@ -205,3 +205,42 @@
 .MuiInput-underline:after {
   border-bottom: unset !important;
 }
+
+@font-face {
+  font-family: 'bluetextfont';
+  src:  url('./theme.configuration/fonts/Comfortaa-Regular.ttf') format('truetype'),
+        
+}
+
+@font-face {
+  font-family: 'text-font';
+  src:  url('./theme.configuration/fonts/sfpro.ttf') format('truetype'),
+        
+}
+
+@font-face {
+  font-family: 'heading-font';
+  src:  url('./theme.configuration/fonts/Gilroy-Medium.ttf') format('truetype'),
+        
+}
+
+.heading-font {
+  font-family: 'heading-font' !important;
+}
+
+.text-font {
+ font-family: 'text-font' !important;
+}
+
+.blue-text-font {
+  font-family: 'Khula', sans-serif !important;
+}
+div {
+  font-family: 'text-font' !important;
+}
+span {
+  font-family: 'text-font' !important;
+}
+.MuiTypography-body1 {
+  font-family: 'text-font' !important;
+}

@@ -1,3 +1,4 @@
+import './main.scss'
 import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -114,7 +115,7 @@ function MiniDrawer(props) {
     console.log(props.auth)
 
     return (
-        <div className={classes.root}>
+        <div className={classes.root} id="main">
             <Header
                 open={open}
                 {...props}
