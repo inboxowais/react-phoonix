@@ -1,0 +1,9 @@
+#wrapper-hero{
+    .carousel .thumbs {
+        display: none !important;
+    }
+    .carousel.carousel-slider {
+       max-height: 500px !important;
+       min-height: auto;
+    }
+}

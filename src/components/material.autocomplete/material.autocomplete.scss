@@ -1,0 +1,50 @@
+.material-autocomplete {
+    display: flex !important;
+    align-items: center !important;
+    height: 24px !important;
+    margin: 2px !important;
+    line-height: 22px !important;
+    background-color: #fafafa !important;
+    border: 1px solid #e8e8e8 !important;
+    border-radius: 2px !important;
+    box-sizing: content-box !important;
+    padding: 0 4px 0 10px !important;
+    outline: 0 !important;
+    overflow: hidden !important;
+
+    &:focus {
+        border-color: #40a9ff !important;
+        background-color: #e6f7ff !important;
+    }
+
+    & span {
+        overflow: hidden !important;
+        white-space: nowrap !important;
+        text-overflow: ellipsis !important;
+    }
+
+    & svg {
+        font-size: 12px !important;
+        cursor: pointer !important;
+        padding: 4px !important;
+    }
+}
+.rotate-180 {
+    transform: rotate(180deg);
+}
+.svg-logo {
+    width: 27px !important;
+    height: 27px !important;
+    border-radius: 100px !important;
+}
+.MuiInputBase-input.Mui-disabled {
+    opacity: 1;
+    color: #000000;
+}
+.wrapper {
+    .MuiIcon-root {
+        width: 30px;
+        height: 38px;
+        color: black;
+    }
+}

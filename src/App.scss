@@ -1,0 +1,207 @@
+.global {
+  .text-center {
+    text-align: center;
+  }
+  .cursor-pointer{
+    cursor: pointer;
+  }
+  .vertical-line {
+    border: 1px solid black;
+    background: black;
+    width: 1px;
+  }
+  .horizontal-line {
+    width: 100%;
+    border: 1px solid black;
+    background: black;
+  }
+  .paper-root {
+    box-shadow: 0px 3px 12px #C8CFDE99 !important;
+  }
+  .text-grey{
+    color: #8D9CA9;
+  }
+  .round-accordion-icon{
+    border-radius: 100px;
+    color: white;
+    background-color: #BA0C2F;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  .w-33{
+    width: 33% !important;
+  }
+  .w-13 {
+    width: 13% !important;
+  }
+  .w-10 {
+    width: 10% !important;
+  }
+  .w-70{
+    width: 70% !important;
+  }
+  .w-90{
+    width: 90% !important;
+  }
+  .w-96{
+    width: 96% !important;
+  }
+  .w-87 {
+    width: 87% !important;
+  }
+  .cursor-pointer {
+    cursor: pointer;
+  }
+  .w-35 {
+    width : 35% !important;
+  }
+  .w-40 {
+    width : 40% !important;
+  }
+  .w-45 {
+    width : 45% !important;
+  }
+  .w-15 {
+    width : 15% !important;
+  }
+  .w-30 {
+    width : 30% !important;
+  }
+  .w-60 {
+    width : 60% !important;
+  }
+  .w-0 {
+    width : 0% !important;
+  }
+  .w-max-content {
+    width : max-content;
+  }
+  .truncated-word {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 190px;
+    min-width: 190px;
+  }
+  .w-5{
+    width: 5% !important;
+  }
+  .w-10{
+    width: 10% !important;
+  }
+  .w-15{
+    width: 15% !important;
+  }
+  .w-20 {
+    width : 20% !important;
+  }
+  .w-80 {
+    width : 80% !important;
+  }
+  .w-85 {
+    width: 85% !important;
+  }
+  .w-95{
+    width: 95% !important;
+  }
+  .bg-black {
+    background-color: #000000;
+  }
+  .border-radius-100 {
+    border-radius: 50% !important;
+  }
+  .text-ellipsis-clamp-3 {
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .text-ellipsis {
+  display: inline-block;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  }
+  .text-ellipsis-clamp-1 {
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  height: 20px;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  }
+  .width-max-content {
+  width  : max-content;
+  } 
+  .animation-height-400 {
+  height: 400px;
+  -webkit-transition: height, 0.3s linear !important;
+  -moz-transition: height, 0.3s linear !important;
+  -ms-transition: height, 0.3s linear !important;
+  -o-transition: height, 0.3s linear !important;
+  transition: height, 0.3s linear !important;
+  }
+  .animation-height-0 {
+  height: 0px;
+  -webkit-transition: height, 0.3s linear !important;
+  -moz-transition: height, 0.3s linear !important;
+  -ms-transition: height, 0.3s linear !important;
+  -o-transition: height, 0.3s linear !important;
+  transition: height, 0.3s linear !important;
+  }
+  .animation-initial-cubic-bezier-transition {
+    transition: all 300ms cubic-bezier(0.34, 1.61, 0.7, 1) !important;
+  }
+  .animation-transform-up-cubix-transition {
+    transform: translate3d(0, -30px, 0);
+  }
+  %animation-transform-up-cubix-transition { // try to import like this  @import filepath and use @extent to refer in file 
+    transform: translate3d(0, -30px, 0);
+  }
+  %animation-transform-scale {
+  transform: scale(1.2);
+  }
+  .skeleton-text {
+  transform: unset !important;
+  }
+  
+  label {
+  margin-bottom: 0px !important;
+  }
+  
+  .loaderHeight{
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.color-light {
+  color: #B2BAC6;
+}
+.background-light {
+  background-color: #F2F4F5;
+}
+.w-70 {
+  width: 70% !important;
+}
+.background-button-light {
+  background-color: #E5E5E5 !important;
+}
+.table-border { 
+  border: 1px solid #A5AEBD;
+}
+.MuiListItemIcon-root.MuiListItemIcon-root i {
+  -webkit-text-fill-color: unset !important;
+}
+.MuiInput-underline:after {
+  border-bottom: unset !important;
+}

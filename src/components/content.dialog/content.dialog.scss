@@ -1,0 +1,36 @@
+#content-dialog {
+  .content {
+    // max-height: 63vh;
+    min-height: 55vh;
+  overflow: auto;
+  }
+
+  .content-dialog-icon {
+    width: 50%;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+
+  .responsive-box {
+    height: 100px;
+
+
+    img  {
+      width: 6vh;
+      height: 6vh;
+    }
+    h4 {
+      font-size: 15px;
+      padding-top: 0px !important;
+    }
+  }
+
+  .dialog-icon {
+    width: 18vh;
+    height: 11vh;
+  }
+}
+.dialog-paper {
+  border-radius: 20px;
+}

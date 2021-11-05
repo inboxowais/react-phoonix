@@ -1,0 +1,21 @@
+.dialogTitle{
+    text-align: start;
+    font-weight: bolder;
+}
+.popup{
+    .MuiPaper-rounded {
+        border-radius: 18px !important;
+       }
+}
+
+
+.dialogContent {
+padding : 8px 50px !important;
+}
+.actions{
+    justify-content: center !important;
+    padding-bottom: 20px !important;
+}
+.confirmation-button {
+  height: 50px;
+}
