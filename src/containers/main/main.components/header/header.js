@@ -135,7 +135,7 @@ function Header(props) {
                 elevation={0}
                 position="fixed"
                 className={clsx(classes.appBar, 'd-flex justify-content-between', {
-                    [classes.appBarShift]: open && !mobileWidth
+                    [classes.appBarShift]: (window.location.pathname.includes("/createApplet") || window.location.pathname.includes("/builder")) ? false : open && !mobileWidth 
                 })}
                 classes={{
                     root: "bg-white"
