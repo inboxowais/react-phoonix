@@ -4,7 +4,7 @@ import getDataFromServer from './server.middleware';
 
 export function* middlewares() {
     yield all([
-        allBeforeMiddleWare(),
+        // allBeforeMiddleWare(),
         getDataFromServer()
     ])
 }

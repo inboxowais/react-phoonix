@@ -31,12 +31,30 @@ const makeSelectSignUpError = () => createSelector(
     (selectAuth) => selectAuth.get('signUpError')
 )
 
+const makeSelectForgetPasswordLoading = () => createSelector(
+    selectAuth,
+    (selectAuth) => selectAuth.get('forgetPasswordLoading')
+)
+
+const makeSelectForgetPasswordResponse = () => createSelector(
+    selectAuth,
+    (selectAuth) => selectAuth.get('forgetPasswordResponse')
+)
+
+const makeSelectForgetPasswordError = () => createSelector(
+    selectAuth,
+    (selectAuth) => selectAuth.get('forgetPasswordError')
+)
+
 export {
     makeSelectAuth,
     makeSelectAuthLoading,
     makeSelectAuthError,
     makeSelectSignUpLoading,
     makeSelectSignUpResponse,
-    makeSelectSignUpError
+    makeSelectSignUpError,
+    makeSelectForgetPasswordError,
+    makeSelectForgetPasswordLoading,
+    makeSelectForgetPasswordResponse
 }
 

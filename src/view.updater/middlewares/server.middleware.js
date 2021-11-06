@@ -4,7 +4,7 @@ import allAfterMiddleware from './all.after.middleware';
 import {addUpdateAppLoadersStatus} from './../../view.updater/actions/app.actions';
 
 export function* getServerData(action) {
-  
+  debugger
   if (action && action.type.indexOf('SUCCESS') > -1) {
     yield allAfterMiddleware(action);
   }
@@ -62,6 +62,7 @@ export function* getServerData(action) {
           response.error.message === 'Wrong Credentials' ||
           response.error.code == 811)
       ) {
+        debugger
         
         yield put({
           type: `${action.type}_ERROR`,
