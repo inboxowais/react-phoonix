@@ -1,11 +1,11 @@
-import { Button, DialogContent, Typography } from '@material-ui/core'
+import { Button, CircularProgress, DialogContent, Typography } from '@material-ui/core'
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import { withRouter } from 'react-router-dom'
 import AppletList from './components/applet.list/applet.list'
@@ -77,6 +77,7 @@ function Dashboard(props) {
 
     const { isFirstTimeUser } = props
 
+
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
@@ -84,6 +85,29 @@ function Dashboard(props) {
     const redirectTo = (route) => {
         props.history.push(route)
     }
+
+    useEffect(() => {
+        props.getAllApplets({
+            "user_id": window.localStorage.getItem("token") && JSON.parse(window.localStorage.getItem("token")).localId ? JSON.parse(window.localStorage.getItem("token")).localId : props.auth && props.auth.user_id,
+            "order_by": {
+                "created_at": "DESC",
+                "updated_at": "ASC"
+            },
+
+        })
+    }, [])
+
+
+
+
+    useEffect(() => {
+        if (props.updateAppletResponse) {
+            props.getAllApplets({
+                "user_id": window.localStorage.getItem("token") &&  JSON.parse(window.localStorage.getItem("token")).localId ? JSON.parse(window.localStorage.getItem("token")).localId : props.auth.user_id
+            })
+        }
+    }, [props.updateAppletResponse])
+
 
 
     return (
@@ -112,15 +136,15 @@ function Dashboard(props) {
             </Dialog>
             <div className="w-100 d-flex justify-content-between align-items-center">
                 <div>
-                    <Typography variant="h5" className = " heading-font">
+                    <Typography variant="h5" className=" heading-font applied-font">
                         Manage Your Applets
                     </Typography>
                 </div>
                 <div>
-                    <Button color="primary" onClick = {() => redirectTo("/createApplet")}>
+                    <Button color="primary" onClick={() => redirectTo("/createApplet")}>
                         <div className="d-flex align-items-center">
                             <i className="font-weight-bold">+</i>
-                            <div className="pl-1">NEW APPLET</div>
+                            <div className="pl-1 applied-font">NEW APPLET</div>
                         </div>
                     </Button>
                 </div>
@@ -131,7 +155,7 @@ function Dashboard(props) {
                     classes={{
                         root: classes.appbarRoot
                     }}
-                    position="static" className="bg-transparent">
+                    position="static" className="bg-transparent applied-font">
                     <Tabs
                         classes={{
                             indicator: classes.indicator
@@ -141,6 +165,7 @@ function Dashboard(props) {
                             value="one"
                             color="#000000"
                             label="Your Applets"
+                            className = "applied-font"
                             wrapped
                             {...a11yProps('one')}
                             classes={{
@@ -155,6 +180,7 @@ function Dashboard(props) {
                                 wrapper: classes.wrapper,
                                 selected: classes.selected
                             }}
+                            className = "applied-font"
                             color="#000000" label="Collaborations" {...a11yProps('two')} />
 
                     </Tabs>
@@ -176,12 +202,18 @@ function Dashboard(props) {
                                     <Button color="primary" onClick={() => redirectTo("/createApplet")} >
                                         <div className="d-flex align-items-center">
                                             <i className="font-weight-bold">+</i>
-                                            <div className="pl-1">NEW APPLET</div>
+                                            <div className="pl-1 applied-font">NEW APPLET</div>
                                         </div>
                                     </Button>
 
                                 </div>
-                            </div> : <AppletList />
+                            </div> :
+                            <React.Fragment>
+                                {
+                                    props.appletsLoading ? <div className="w-100 d-flex justify-content-center"> <CircularProgress /></div> :
+                                        <AppletList {...props} />
+                                }
+                            </React.Fragment>
                     }
                 </TabPanel>
                 <TabPanel value={value} index="two">

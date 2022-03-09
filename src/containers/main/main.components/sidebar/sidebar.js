@@ -140,7 +140,7 @@ function Header(props) {
                                 root: "text-white",
 
                             }}
-                        >{<i class="fas fa-home"></i>}</ListItemIcon>
+                        >{<i class="fa fa-home"></i>}</ListItemIcon>
                         <ListItemText primary={"Home"} className="text-white" />
                     </ListItem>
                     <ListItem
@@ -166,7 +166,7 @@ function Header(props) {
                             classes={{
                                 root: "text-white"
                             }}
-                        >{<i class="fas fa-plus"></i>}</ListItemIcon>
+                        >{<i class="fa fa-plus"></i>}</ListItemIcon>
                         <ListItemText primary={"Create"} className="text-white" />
                     </ListItem>
 

@@ -8,7 +8,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import PropTypes from 'prop-types';
 import { IsMobileWidth } from 'components/utils/util'
- 
+import { useEffect } from 'react';
+
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -94,10 +95,14 @@ export default function DashboardMain(props) {
         props.history.push(route)
     }
 
+    useEffect(() => {
+        props.getProfile(window.localStorage.getItem("token") && JSON.parse(window.localStorage.getItem("token")).localId ? window.localStorage.getItem("token") &&  JSON.parse(window.localStorage.getItem("token")).localId : props.auth && props.auth.user_id)
+    }, [])
+
 
     return (
         <div>
-            <Typography variant="h5" >Welcome , Owais</Typography>
+            <Typography variant="h5" >Welcome, {props.profile && props.profile.displayName}</Typography>
             <div className={`d-flex align-items-center pt-4 ${!mobileWidth && "justify-content-between"}`}>
 
                 <AppBar
@@ -107,7 +112,7 @@ export default function DashboardMain(props) {
                     }}
                     position="static" className={`bg-transparent d-flex ${mobileWidth && "flex-column align-items-start"}`}>
                     <div>
-                        <Typography variant="h6" className="text-dark"> Insights </Typography>
+                        <Typography variant="h6" className="text-dark applied-font"> Insights </Typography>
 
                     </div>
                     <Tabs
@@ -119,6 +124,7 @@ export default function DashboardMain(props) {
                             value="one"
                             color="#000000"
                             label="Last 7 days"
+                            className=' applied-font'
                             wrapped
                             {...a11yProps('one')}
                             classes={{
@@ -134,6 +140,7 @@ export default function DashboardMain(props) {
                                 wrapper: classes.wrapper,
                                 selected: classes.selected
                             }}
+                            className=' applied-font'
                             color="#000000" label="Last 30 days" {...a11yProps('two')} />
                         <Tab
                             value="three"
@@ -142,6 +149,7 @@ export default function DashboardMain(props) {
                                 wrapper: classes.wrapper,
                                 selected: classes.selected
                             }}
+                            className=' applied-font'
                             color="#000000" label="Life Time" {...a11yProps('three')} />
 
                     </Tabs>
@@ -157,7 +165,7 @@ export default function DashboardMain(props) {
                         <Typography className='font-weight-bolder' variant="h5">8.3k</Typography>
                     </div>
                     <div >
-                        <img className = {mobileWidth && "w-80"} src={`${process.env.PUBLIC_URL}/assets/Vector 2.png`} />
+                        <img className={mobileWidth && "w-80"} src={`${process.env.PUBLIC_URL}/assets/Vector 2.png`} />
                     </div>
                 </div>
                 <div className="flex-grow-1 d-flex flex-column">
@@ -168,7 +176,7 @@ export default function DashboardMain(props) {
                         <Typography className='font-weight-bolder' variant="h5">8.3k</Typography>
                     </div>
                     <div>
-                        <img className = {mobileWidth && "w-80"} src={`${process.env.PUBLIC_URL}/assets/Vector 2.png`} />
+                        <img className={mobileWidth && "w-80"} src={`${process.env.PUBLIC_URL}/assets/Vector 2.png`} />
                     </div>
                 </div>
                 <div className="flex-grow-1 d-flex flex-column">
@@ -179,7 +187,7 @@ export default function DashboardMain(props) {
                         <Typography className='font-weight-bolder' variant="h5">679</Typography>
                     </div>
                     <div>
-                        <img className = {mobileWidth && "w-80"} src={`${process.env.PUBLIC_URL}/assets/Vector 2.png`} />
+                        <img className={mobileWidth && "w-80"} src={`${process.env.PUBLIC_URL}/assets/Vector 2.png`} />
                     </div>
                 </div>
             </div>
@@ -200,16 +208,16 @@ export default function DashboardMain(props) {
                     <div className="border border-bottom w-100"></div>
                     <div className={`d-flex pt-2 ${mobileWidth && 'flex-column'}`}>
                         <div>
-                            <img  src={`${process.env.PUBLIC_URL}/assets/doctor.png`} />
+                            <img src={`${process.env.PUBLIC_URL}/assets/doctor.png`} />
                         </div>
                         <div className={`${!mobileWidth && `ml-2`} ${mobileWidth && "pt-2"}`}>
-                            <img  src={`${process.env.PUBLIC_URL}/assets/doctor.png`} />
+                            <img src={`${process.env.PUBLIC_URL}/assets/doctor.png`} />
                         </div>
                         <div className={`${!mobileWidth && `ml-2`} ${mobileWidth && "pt-2"}`}>
-                            <img  src={`${process.env.PUBLIC_URL}/assets/doctor.png`} />
+                            <img src={`${process.env.PUBLIC_URL}/assets/doctor.png`} />
                         </div>
                         <div className={`${!mobileWidth && `ml-2`} ${mobileWidth && "pt-2"}`}>
-                            <img  src={`${process.env.PUBLIC_URL}/assets/doctor.png`} />
+                            <img src={`${process.env.PUBLIC_URL}/assets/doctor.png`} />
                         </div>
                     </div>
 

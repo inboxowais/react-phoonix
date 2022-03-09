@@ -114,7 +114,6 @@ function Header(props) {
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleClick = (event) => {
-        debugger
         setAnchorEl(anchorEl ? null : event.currentTarget);
     };
 
@@ -135,7 +134,7 @@ function Header(props) {
                 elevation={0}
                 position="fixed"
                 className={clsx(classes.appBar, 'd-flex justify-content-between', {
-                    [classes.appBarShift]: (window.location.pathname.includes("/createApplet") || window.location.pathname.includes("/builder")) ? false : open && !mobileWidth 
+                    [classes.appBarShift]: (window.location.pathname.includes("/createApplet") || window.location.pathname.includes("/builder")) ? false : open && !mobileWidth
                 })}
                 classes={{
                     root: "bg-white"
@@ -169,21 +168,24 @@ function Header(props) {
                             </div>
                             <Typography
                                 className=" pl-1 blue-text-font pt-2"
-                                variant = "overline"
-                                
+                                variant="overline"
+
                                 color="primary"
                                 noWrap>
-                                Phonenix NC
+                                Phoenix NC
                             </Typography>
                         </div>
                     </div>
-                    <Popper anchorEl={anchorEl} open = {openD} style = {{zIndex:2000}}> 
-                    <ClickAwayListener onClickAway = {() => setAnchorEl(false)}>
-                        <Paper className = "pl-3 pr-3 pt-3 pb-3 cursor-pointer"  style = {{zIndex:2000,cursor:"pointer"}} onClick= {() => redirectTo("/login")}>Logout</Paper>
+                    <Popper anchorEl={anchorEl} open={openD} style={{ zIndex: 2000 }}>
+                        <ClickAwayListener onClickAway={() => setAnchorEl(false)}>
+                            <Paper className="pl-3 pr-3 pt-3 pb-3 cursor-pointer applied-font" style={{ zIndex: 2000, cursor: "pointer" }} onClick={() => redirectTo("/login")}>Logout</Paper>
                         </ClickAwayListener>
                     </Popper>
                     <div className="text-dark" onClick={handleClick}>
-                        <Avatar className={classes.purple}>A</Avatar>
+                        {
+                            props.profile.photoURL ? <img src={props.profile.photoURL} style={{ width: 50, height: 50,borderRadius:100,border:"1px solid #000000" }} /> :
+                                <Avatar className={classes.purple}></Avatar>
+                        }
                     </div>
                 </Toolbar>
 

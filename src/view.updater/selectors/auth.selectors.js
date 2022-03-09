@@ -46,6 +46,40 @@ const makeSelectForgetPasswordError = () => createSelector(
     (selectAuth) => selectAuth.get('forgetPasswordError')
 )
 
+const makeSelectProfileLoading = () => createSelector(
+    selectAuth,
+    (selectAuth) => selectAuth.get('profileLoading')
+)
+
+const makeSelectProfile = () => createSelector(
+    selectAuth,
+    (selectAuth) => selectAuth.get('profile')
+)
+
+const makeSelectProfileError = () => createSelector(
+    selectAuth,
+    (selectAuth) => selectAuth.get('profileError')
+)
+
+
+const makeSelectUpdateProfile = () => createSelector(
+    selectAuth,
+    (selectAuth) => selectAuth.get('updateProfile')
+)
+
+const makeSelectUpdateProfileLoading = () => createSelector(
+    selectAuth,
+    (selectAuth) => selectAuth.get('updateProfileLoading')
+)
+
+const makeSelectUpdateProfileError = () => createSelector(
+    selectAuth,
+    (selectAuth) => selectAuth.get('updateProfileError')
+)
+
+
+
+
 export {
     makeSelectAuth,
     makeSelectAuthLoading,
@@ -55,6 +89,12 @@ export {
     makeSelectSignUpError,
     makeSelectForgetPasswordError,
     makeSelectForgetPasswordLoading,
-    makeSelectForgetPasswordResponse
+    makeSelectForgetPasswordResponse,
+    makeSelectProfile,
+    makeSelectProfileLoading,
+    makeSelectProfileError,
+    makeSelectUpdateProfile,
+    makeSelectUpdateProfileLoading,
+    makeSelectUpdateProfileError
 }
 

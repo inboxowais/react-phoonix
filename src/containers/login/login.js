@@ -21,10 +21,12 @@ function SignUp(props) {
 
     useEffect(() => {
         if (props.authResponse) {
+            
             props.history.push("/")
         }
     }, [props.authResponse])
 
+ 
     useEffect(() => {
         return () => {
             props.resetAuth()

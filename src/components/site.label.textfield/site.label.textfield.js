@@ -54,6 +54,7 @@ export default function SiteLabelTextField(props) {
                       disabled={props.disabled ? props.disabled : null}
                       variant="outlined"
                       color="primary"
+                      className = "applied-font"
                       type={type}
                       inputProps={{
                         maxLength: maxLength,
@@ -66,6 +67,7 @@ export default function SiteLabelTextField(props) {
                           notchedOutline: classes.noBorder,
                           input: classes.input,
                           disabled: classes.disabled,
+                          className : "applied-font"
 
                         },
                         type: type,
@@ -113,6 +115,7 @@ export default function SiteLabelTextField(props) {
                     <TextField
                       onBlur={props.onBlur}
                       type={type}
+                      className = "applied-font"
                       value={value}
                       placeholder={placeholder}
                       label={null}
@@ -121,6 +124,7 @@ export default function SiteLabelTextField(props) {
                       inputProps={{
                         maxLength: maxLength,
                         pattern: pattern,
+                        className : "applied-font"
 
                       }}
                       onChange={onChange}

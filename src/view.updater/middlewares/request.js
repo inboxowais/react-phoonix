@@ -1,5 +1,5 @@
 import 'whatwg-fetch';
-import {SERVER_URL, SERVER_PORT} from './../../utils/server/utils';
+import { SIGN_UP_URL, SERVER_PORT, AUTH_URL, SER, SERVER_URL } from './../../utils/server/utils';
 
 /**
  * Parses the JSON returned by a network request
@@ -26,30 +26,32 @@ import {SERVER_URL, SERVER_PORT} from './../../utils/server/utils';
  * @return {object}           The response data
  */
 export default function request(url, options) {
-  url = `${SERVER_URL}/${url}`;
 
-  const token = window.localStorage.getItem("token")
+
+
+  url = options.auth ? `${AUTH_URL}/${url}` : options.sign ? `${SIGN_UP_URL}/${url}` : `${SERVER_URL}/${url}`;
+
+  const token = JSON.parse(window.localStorage.getItem("token"))
 
   var obj = {
     method: options.method,
-    headers: {
+    headers: token ? {
       'Content-Type': 'application/json',
       'Accept-Encoding': 'gzip,deflate',
-      
-    
+      'Authorization': 'Bearer ' + token.idToken
+    } : {
+      'Content-Type': 'application/json',
+      'Accept-Encoding': 'gzip,deflate',
     },
     body: JSON.stringify(options.body),
   };
-
   
-
   return fetch(url, obj)
     .then(function (res) {
-      return res.json();
+    
+      return res.text();
     })
-    .then(function (resJson) {
-      return resJson;
-    })
+    .then((text) => text.length ? JSON.parse(text) : { success: true })
     .catch((err) => {
       console.log(err);
     });

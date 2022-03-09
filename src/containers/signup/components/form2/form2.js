@@ -107,7 +107,7 @@ export default function FormTwo() {
                     </div>
                     <div className="pt-3 d-flex align-items-center">
                         <Checkbox color="primary" />
-                        <Typography className="pl-2">
+                        <Typography className="pl-2 applied-font">
                             Accept the Terms and Conditions
                         </Typography>
                     </div>

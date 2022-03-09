@@ -48,13 +48,16 @@ export default function NotesTextField(props) {
                                         classes: {
                                             inputAdornedStart: classes.paddingLeft,
                                             notchedOutline: classes.noBorder,
+                                           
+                                            className : "applied-font"
                                         }
                                     }}
                                     classes={{
                                         root: state.textFieldIsFocus ? "height-100" : null
                                     }}
                                     inputProps={{
-                                        maxLength: maxLength
+                                        maxLength: maxLength,
+                                        className : "applied-font"
                                     }}
                                     value={value}
 

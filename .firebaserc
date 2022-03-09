@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "pheonix-1453f"
-  }
+    "staging": "phoenix-nc",
+    "default": "phoenix-nc"
+  },
+  "targets": {}
 }

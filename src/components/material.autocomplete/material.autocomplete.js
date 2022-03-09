@@ -10,7 +10,7 @@ import Avatar from '@material-ui/core/Avatar'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 export default function MaterialAutoComplete(props) {
-    const { data, placeholder, execStatus, error, selectedItem, endAdornment, placement, startAdornment, disabled, topAdornment, pagination, required,lightBorder } = props;
+    const { data, placeholder, execStatus, error, selectedItem, endAdornment, placement, startAdornment, disabled, topAdornment, pagination, required, lightBorder } = props;
     let selectedItm;
     if (selectedItem)
         selectedItm = data && data.find((item) => item.value === selectedItem.value);
@@ -25,9 +25,10 @@ export default function MaterialAutoComplete(props) {
 
     useEffect(() => {
         if (autoCompleteRef.current) {
+
             setState({ ...state, autoCompleteWidth: autoCompleteRef.current.offsetWidth })
         }
-    }, [autoCompleteRef])
+    }, [autoCompleteRef, state.anchorELe])
 
     const onOpen = (event) => {
         if (props.disabled === true) {
@@ -190,7 +191,7 @@ export default function MaterialAutoComplete(props) {
                                             onBlur={closePopper}
                                             value={selectedItm && selectedItm.name}
                                             inputProps={{
-                                                className: 'pb-0 pt-0',
+                                                className: 'pb-0 pt-0 applied-font',
 
                                             }}
                                             className={clsx(`flex-grow-1 ${classes.input}`, !startAdornment && !selectedItem && "pl-2", startAdornment && !selectedItem && "pl-2", selectedItem && "pl-2")}
@@ -208,9 +209,9 @@ export default function MaterialAutoComplete(props) {
 
                                                                     {
                                                                         open ?
-                                                                            <span class="material-icons">
+                                                                            <span class="fa fa-caret-down">
                                                                                 keyboard_arrow_left</span> :
-                                                                            <span class="material-icons">
+                                                                            <span class="fa fa-caret-up">
                                                                                 keyboard_arrow_right</span>
                                                                     }
                                                                 </React.Fragment> :

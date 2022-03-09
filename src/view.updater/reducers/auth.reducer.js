@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-import { LOGIN, LOGIN_SUCCESS, LOGIN_ERROR, RESET_AUTH, SIGN_UP, SIGN_UP_ERROR, SIGN_UP_SUCCESS, FORGET_PASSWORD, FORGET_PASSWORD_ERROR, FORGET_PASSWORD_SUCCESS } from './../actions/auth.actions'
+import { LOGIN, LOGIN_SUCCESS, LOGIN_ERROR, RESET_AUTH, SIGN_UP, SIGN_UP_ERROR, SIGN_UP_SUCCESS, FORGET_PASSWORD, FORGET_PASSWORD_ERROR, FORGET_PASSWORD_SUCCESS, GET_PROFILE, GET_PROFILE_ERROR, GET_PROFILE_SUCCESS, UPDATE_PROFILE, UPDATE_PROFILE_ERROR, UPDATE_PROFILE_SUCCESS } from './../actions/auth.actions'
 
 const initialState = Immutable.fromJS({
     authResponse: window.localStorage.getItem("token"),
@@ -10,7 +10,13 @@ const initialState = Immutable.fromJS({
     signUpResponse: false,
     forgetPasswordLoading: false,
     forgetPasswordResponse: false,
-    forgetPasswordError: false
+    forgetPasswordError: false,
+    profile: false,
+    profileLoading: false,
+    profileError: false,
+    updateProfile: false,
+    updateProfileLoading: false,
+    updateProfileError: false
 
 });
 
@@ -22,11 +28,13 @@ function authReducer(state = initialState, action) {
                 .set('authResponseError', false)
                 .set("usersIsLoading", true)
         case LOGIN_SUCCESS:
-            window.localStorage.setItem("token", action.response.idToken)
+            
+            window.localStorage.setItem("token", JSON.stringify(action.response))
+
             return state
                 .set('authResponseLoading', false)
                 .set('authResponseError', true)
-                .set("authResponse", action.response.idToken)
+                .set("authResponse", action.response)
         case LOGIN_ERROR:
             return state
                 .set('authResponseLoading', false)
@@ -47,7 +55,7 @@ function authReducer(state = initialState, action) {
                 .set('signUpLoading', true)
                 .set('signUpError', false)
         case SIGN_UP_SUCCESS:
-            window.localStorage.setItem("token", action.response.idToken)
+          
             return state
                 .set('signUpLoading', false)
                 .set('signUpError', true)
@@ -66,10 +74,35 @@ function authReducer(state = initialState, action) {
                 .set('forgetPasswordError', false)
                 .set("forgetPasswordResponse", action.response)
         case FORGET_PASSWORD_ERROR:
-            debugger
             return state
                 .set('forgetPasswordLoading', false)
                 .set('forgetPasswordError', action.error)
+        case GET_PROFILE:
+            return state
+                .set('profileLoading', true)
+                .set('profileError', false)
+        case GET_PROFILE_SUCCESS:
+            return state
+                .set('profileLoading', false)
+                .set('profileError', false)
+                .set("profile", action.response)
+        case GET_PROFILE_ERROR:
+            return state
+                .set('profileLoading', false)
+                .set('profileError', action.error)
+        case UPDATE_PROFILE:
+            return state
+                .set('updateProfileLoading', true)
+                .set('updateProfileError', false)
+        case UPDATE_PROFILE_SUCCESS:
+            return state
+                .set('updateProfileLoading', false)
+                .set('updateProfileError', false)
+                .set("updateProfile", action.response)
+        case UPDATE_PROFILE_ERROR:
+            return state
+                .set('updateProfileLoading', false)
+                .set('updateProfileError', action.error)
         default:
             return state;
     }

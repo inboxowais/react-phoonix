@@ -138,7 +138,7 @@ export function getContact() {
 }
 
 export function postContact(data) {
-  console.log(data);
+
   return {
     type: POST_CONTACT,
     url: 'contact_details',

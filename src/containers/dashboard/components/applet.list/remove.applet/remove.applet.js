@@ -7,6 +7,7 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Divider from "@material-ui/core/Divider";
 import "./remove.applet.scss";
+import { CircularProgress } from "@material-ui/core";
 // import LoaderButton from "../material.components/loader.button/loader.button";
 
 export default function ConfirmationDialog(props) {
@@ -27,7 +28,7 @@ export default function ConfirmationDialog(props) {
           classes={{ root: "dialogTitle" }}
           id="alert-dialog-title"
         >
-         <b> {title}</b>
+          <b> {title}</b>
         </DialogTitle>
         <DialogContent classes={{ root: "dialogContent" }}>
           <DialogContentText dividers id="alert-dialog-description">
@@ -49,7 +50,7 @@ export default function ConfirmationDialog(props) {
                   className="confirmation-button"
                 >
                   Contact Deleted Successfully , Go Back
-            </Button> : null
+                </Button> : null
             }
             {
               isContactDeleted === undefined || isContactDeleted === false ?
@@ -67,16 +68,20 @@ export default function ConfirmationDialog(props) {
             {
               successButtonText ?
                 <div className="w-35 pl-3">
-                  <Button
-                    loading={loading}
-                    onClick={props.onSuccess}
-                    color="primary"
-                    fullWidth
-                    variant="contained"
+                  {
+                    props.loading ? <CircularProgress /> :
+                      <Button
+                        loading={loading}
+                        onClick={props.onSuccess}
+                        color="primary"
+                        fullWidth
+                        variant="contained"
 
-                  >
-                    {successButtonText}
-                  </Button></div> : null
+                      >
+                        {successButtonText}
+                      </Button>
+                  }
+                </div> : null
             }
 
           </div>

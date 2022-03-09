@@ -1,5 +1,5 @@
 .box {
-    
+
     width: max-content;
     height: 30px;
 
@@ -7,5 +7,50 @@
 .big-box {
     width: 80%;
     height: 200px;
-   
+
 }
+.sidebar-left{
+    flex: 0 0 200px;
+    overflow-y: scroll;
+  }
+
+  .main{
+    flex: 1 1 100%;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+  }
+
+  .container{
+    position: absolute;
+      display: flex;
+    top:10px;
+    left:0;
+    bottom:10px;
+    right:0;
+    text-align: left;
+  }
+  .react-flow {
+    // background: red;
+  }
+  .react-flow__renderer {
+    // background: red;
+  }
+  .react-flow__handle {
+     background: unset !important;
+  }
+  .react-flow__node-default {
+     background: #BDC6D3 !important;
+    border: unset !important;
+    border-radius: 11px !important;
+    color: #ffffff !important;
+    background-image: linear-gradient(#D4DDE2,#A5B0C5 ) !important;
+   
+  }
+  .gjs-editor-cont {
+
+     height: 75vh !important;
+  }
+  // .react-flow__handle {
+  //   display: none !important;
+  // }

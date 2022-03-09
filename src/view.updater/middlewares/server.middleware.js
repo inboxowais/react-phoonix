@@ -1,20 +1,20 @@
-import {call, put, takeEvery} from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 import request from './request';
 import allAfterMiddleware from './all.after.middleware';
-import {addUpdateAppLoadersStatus} from './../../view.updater/actions/app.actions';
+import { addUpdateAppLoadersStatus } from './../../view.updater/actions/app.actions';
+import { push } from 'connected-react-router'
 
 export function* getServerData(action) {
-  debugger
+
   if (action && action.type.indexOf('SUCCESS') > -1) {
     yield allAfterMiddleware(action);
   }
   if (action.url) {
-    
+
     try {
       let response;
-      
       // Call our request helper (see 'utils/request')
-      if (action.method === 'POST' || action.method === 'PUT') {
+      if (action.method === 'POST' || action.method === 'PUT' || action.method === "DELETE") {
         let data = {};
         if (action.encoded === 'URL_ENCODED') {
           // data = new URLSearchParams(action.data);
@@ -36,16 +36,24 @@ export function* getServerData(action) {
           method: action.method || 'GET',
           body: action.data,
           encoded: action.encoded,
+          auth: action.auth,
+          sign: action.sign
         });
       } else {
         response = yield call(request, action.url, {
           method: action.method || 'GET',
           encoded: action.encoded,
           token: action.token,
+          auth: action.auth,
+          sign: action.sign
         });
       }
+      if (response.message && response.message === "invalid jwt") {
+        window.localStorage.removeItem("token")
+        window.location.reload()
+      }
       if (
-        
+
         response && response.error &&
         (response.error.code == 812 ||
           response.error.code == 400 ||
@@ -60,10 +68,11 @@ export function* getServerData(action) {
           response.error.code == 806 ||
           response.error.code == 807 ||
           response.error.message === 'Wrong Credentials' ||
+
           response.error.code == 811)
       ) {
-        debugger
-        
+
+
         yield put({
           type: `${action.type}_ERROR`,
           error: response.error,
@@ -72,8 +81,10 @@ export function* getServerData(action) {
         yield put({
           type: `${action.type}_SUCCESS`,
           baseType: `${action.type}`,
-          response : response,
+          response: response,
           data: action.data,
+          auth: action.auth,
+          sign: action.sign
         });
       }
     } catch (err) {

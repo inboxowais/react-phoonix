@@ -107,12 +107,14 @@ function MiniDrawer(props) {
     };
 
     useEffect(() => {
+        props.findSingleUser(window.localStorage.getItem("token") && JSON.parse(window.localStorage.getItem("token")).localId ? JSON.parse(window.localStorage.getItem("token")).localId : props.auth && props.auth.user_id)
+        props.getProfile(window.localStorage.getItem("token") && JSON.parse(window.localStorage.getItem("token")).localId ? JSON.parse(window.localStorage.getItem("token")).localId : props.auth && props.auth.user_id)
         if (!props.auth) {
             props.history.push("/login")
         }
     }, [])
 
-    console.log(props.auth)
+
 
     return (
         <div className={classes.root} id="main">

@@ -1,3 +1,4 @@
+
 .global {
   .text-center {
     text-align: center;
@@ -235,12 +236,57 @@
 .blue-text-font {
   font-family: 'Khula', sans-serif !important;
 }
-div {
+.applied-font{
   font-family: 'text-font' !important;
 }
-span {
+.applied-font {
   font-family: 'text-font' !important;
 }
+// div {
+//   font-family: 'text-font' !important;
+// }
+h1 {
+  font-family: 'text-font' !important;
+}
+h2 {
+  font-family: 'text-font' !important;
+}
+
+h3 {
+  font-family: 'text-font' !important;
+}
+
+h4 {
+  font-family: 'text-font' !important;
+}
+
+h5 {
+  font-family: 'text-font' !important;
+}
+
+h6 {
+  font-family: 'text-font' !important;
+}
+.MuiButton-label {
+  font-family: 'text-font' !important;
+}
+
+
+.MuiTooltip-tooltip {
+  font-family: 'text-font' !important;
+}
+
+
+
 .MuiTypography-body1 {
   font-family: 'text-font' !important;
+}
+.opacity-05 {
+  opacity: 0.5;
+}
+
+.MuiDrawer-paperAnchorLeft {
+  left: 0;
+  right: auto;
+  width: 40vh;
 }

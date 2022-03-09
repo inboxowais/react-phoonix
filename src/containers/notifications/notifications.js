@@ -121,7 +121,7 @@ function Notifications(props) {
             </Dialog>
             <div className="w-100 d-flex justify-content-between align-items-center">
                 <div>
-                    <Typography variant="h5" className="font-weight-bolder">
+                    <Typography variant="h5" className="font-weight-bolder applied-font">
                         Notifications
                     </Typography>
                 </div>
@@ -149,6 +149,7 @@ function Notifications(props) {
                         <Tab
                             value="one"
                             color="#000000"
+                            className='applied-font'
                             label="All Notifications"
                             wrapped
                             {...a11yProps('one')}
@@ -160,6 +161,7 @@ function Notifications(props) {
                         />
                         <Tab
                             value="two"
+                            className='applied-font'
                             classes={{
                                 wrapper: classes.wrapper,
                                 selected: classes.selected
@@ -178,11 +180,11 @@ function Notifications(props) {
                                     <div style={{ color: "#0065FF" }}><i class="fas fa-circle"></i></div>
                                     <div className="pl-2 d-flex flex-column">
                                         <div>
-                                            <Typography color="primary" className="font-weight-bolder" color="primary">
+                                            <Typography color="primary" className="font-weight-bolder applied-font" color="primary">
                                                 Applet Update
                                             </Typography>
                                         </div>
-                                        <div className='text-muted pt-2'>
+                                        <div className='text-muted pt-2 applied-font'>
                                             Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, ipsum dolor
                                         </div>
                                     </div>
@@ -193,11 +195,11 @@ function Notifications(props) {
                                     <div style={{ color: "#FEAA48" }}><i class="fas fa-circle"></i></div>
                                     <div className="pl-2 d-flex flex-column">
                                         <div>
-                                            <Typography style={{ color: "#FEAA48" }} color="#FEAA48" className="font-weight-bolder" >
+                                            <Typography style={{ color: "#FEAA48" }} color="#FEAA48" className="font-weight-bolder  applied-font" >
                                                 New Channel Applet
                                             </Typography>
                                         </div>
-                                        <div className='text-muted pt-2'>
+                                        <div className='text-muted pt-2  applied-font'>
                                             Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, ipsum dolor
                                         </div>
                                     </div>
